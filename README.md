@@ -73,9 +73,29 @@ python predict.py --source test_images/
 
 ---
 
+## 🎞️ Video Tahmini ve Görüntü Ön İşleme
+
+Son güncellemelerle birlikte, artık video dosyaları üzerinde kapalı yol tespiti ve görüntü ön işleme desteği de eklenmiştir.
+
+### Video Tahmini
+
+Bir video üzerinde tahmin çalıştırmak için:
+
+```bash
+python predict.py --source path/to/video.mp4
+```
+- Video dosyasının yolunu `--source` parametresi ile belirtebilirsiniz.
+- Sonuçlar, `runs/predict/exp` altında kare kare işlenmiş ve kutucuklar eklenmiş olarak kaydedilir.
+
+### Görüntü Ön İşleme
+
+Kodda yer alan otomatik ön işleme adımları sayesinde giriş görselleriniz, model için uygun boyuta ve biçime dönüştürülür. Bu işlemler otomatik olarak `predict.py` içinde çalışır, ekstra bir işleme gerek yoktur.
+
+---
+
 ## 📄 Ek Bilgiler
 
-- Daha fazla test için farklı resimleri `test_images/` klasörüne ekleyebilirsiniz.
+- Daha fazla test için farklı resimleri veya videoları `test_images/` klasörüne ekleyebilirsiniz.
 - Model ve kodlar üzerinde değişiklik yapmak için `predict.py` ve `models/` klasörünü inceleyiniz.
 
 ---
