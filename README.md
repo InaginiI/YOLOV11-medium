@@ -1,36 +1,85 @@
 # Kapalı Yol Tespiti (YOLOv11m)
 
 Bu proje, YOLOv11m kullanılarak eğitilmiş **kapalı yol tespiti modeli** içerir.  
-Model `best.pt` dosyası ile birlikte gelir, böylece tekrar eğitim yapmanıza gerek kalmaz.  
+Model `best.pt` dosyası ile birlikte gelir, böylece tekrar eğitim yapmanıza gerek kalmaz.
 
 ---
 
-## 🚀 Kurulum
+## 🚀 Kurulum (Detaylı)
 
+### 1. Python ve Ortam Hazırlığı
+
+- **Python 3.8+** kurulu olmalı.
+- Sanal ortam kullanmanız önerilir:
+
+```bash
+python -m venv yolov11-env
+source yolov11-env/bin/activate # (Linux/Mac)
+yolov11-env\Scripts\activate    # (Windows)
+```
+
+### 2. Depoyu Klonlayın
+
+```bash
 git clone https://github.com/InaginiI/YOLOV11-medium.git
 cd YOLOV11-medium
+```
+
+### 3. Bağımlılıkları Yükleyin
+
+```bash
 pip install -r requirements.txt
+```
+- `requirements.txt` dosyasında PyTorch, OpenCV ve diğer gereklilikler yer almaktadır.
+
+### 4. Model Dosyası Kontrolü
+
+- `best.pt` dosyasının ana dizinde olduğundan emin olun.
+- Aksi takdirde, modeli indirmeniz veya eğitmeniz gerekir.
+
+### 5. Test Görsellerini Hazırlayın
+
+- Tahmin yapmak istediğiniz görselleri `test_images/` klasörüne ekleyin.
+- Örnek: `test_images/yol1.jpg`, `test_images/yol2.png`
+
+---
+
+## 🔎 Kullanım
+
+### Temel Kullanım
+
+```bash
 python predict.py
+```
 
-##🔎 Kullanım
+Tahminler, `test_images/` klasöründeki tüm görseller için çalıştırılır. Sonuçlar `runs/predict/` klasörüne kaydedilecektir.
 
-Test etmek istediğiniz görselleri test_images/ klasörüne ekleyin.
-Örneğin:
+### Komut Satırı ile Örnek Kullanım
 
-test_images/
-├── yol1.jpg
-├── yol2.png
+```bash
+python predict.py --source test_images/
+```
+- `--source` ile farklı bir klasördeki görselleri de kullanabilirsiniz.
 
+### Sonuçların İncelenmesi
 
-Aşağıdaki komutla tahmin çalıştırın:
+- Çıktılar: `runs/predict/exp/` klasöründe, orijinal resimlerin üzerine modelin çizdiği kutucuklar ile kaydedilmiş halleri bulunur.
+- Örnek çıktı dosya yolu: `runs/predict/exp/yol1.jpg`
 
-python predict.py
+### Örnek Çıktı Açıklaması
 
+- Her tahmin edilen görsel üzerinde kapalı yol alanları kutucuk ile işaretlenir.
+- Kutucukların etiket bilgisi ve olasılık skorları görselin üzerinde gösterilir.
 
-Sonuçlar otomatik olarak runs/predict/ klasörüne kaydedilecektir.
+---
 
-Orijinal resimlerin üzerine modelin çizdiği kutucuklar ile kaydedilmiş halleri bulunur.
+## 📄 Ek Bilgiler
 
-Örnek yol:
+- Daha fazla test için farklı resimleri `test_images/` klasörüne ekleyebilirsiniz.
+- Model ve kodlar üzerinde değişiklik yapmak için `predict.py` ve `models/` klasörünü inceleyiniz.
 
-runs/predict/exp/yol1.jpg
+---
+
+## 🛠️ Destek
+
+Sorularınız için GitHub Issues üzerinden iletişime geçebilirsiniz.
