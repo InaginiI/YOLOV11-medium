@@ -53,7 +53,7 @@ def preprocess_image(img):
 # --- YOLO Modeli Tahmini ---
 # =============================
 
-model = YOLO("best.pt")  # Eğittiğin model
+model = YOLO("best.pt")  # Eğittiğin model # FARKLI MODELE GECERKEN BURADAN ISMINI DEGİSTİR 
 
 # ------------- RESİMLER -------------
 # input_dir = "test_images"
